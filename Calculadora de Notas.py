@@ -1,0 +1,116 @@
+# IDENTIFICAÇÃO DO ALUNO
+
+ALUNO = input("DIGITE O NOME DO ALUNO:\n")
+RA = input("DIGITE O RA DO ALUNO:\n")
+
+print("\nETAPAS DE ENSINO")
+print("1 - Ensino Fundamental")
+print("2 - Ensino Médio")
+
+SERIE_ESCOLAR = input("DIGITE A ETAPA DE ENSINO: ")
+
+# REPETIR SE A ETAPA FOR INVÁLIDA
+
+while SERIE_ESCOLAR != "1" and SERIE_ESCOLAR != "2":
+    print("ETAPA INVÁLIDA! DIGITE NUMERO 1 OU NUMERO 2.")
+    SERIE_ESCOLAR = input("DIGITE A ETAPA DE ENSINO NOVAMENTE: ")
+
+if SERIE_ESCOLAR == "1":
+    ETAPA_ENSINO = "Ensino Fundamental"
+else:
+    ETAPA_ENSINO = "Ensino Médio"
+
+SERIE = input("DIGITE A SÉRIE DO ALUNO:\n")
+
+# MATÉRIAS ESCOLARES
+
+MATERIAS = [
+    "Língua Portuguesa",
+    "Literatura",
+    "Física",
+    "Química",
+    "Biologia",
+    "História",
+    "Geografia",
+    "Filosofia",
+    "Língua Inglesa",
+    "Sociologia",
+    "Educação Física",
+    "Arte"
+]
+
+print("\nESCOLHA A MATÉRIA ESCOLAR")
+
+for numero, materia in enumerate(MATERIAS, 1):
+    print(f"{numero} - {materia}")
+
+MATERIA = int(input("DIGITE O NÚMERO DA MATÉRIA DO ALUNO:\n"))
+
+# REPETIR SE A MATÉRIA FOR INVÁLIDA
+
+while MATERIA < 1 or MATERIA > len(MATERIAS):
+    print("MATÉRIA INVÁLIDA! ESCOLHA UM NÚMERO ENTRE 1 E 12.")
+    MATERIA = int(input("DIGITE O NÚMERO DA MATÉRIA NOVAMENTE:\n"))
+
+# PEGAR O NOME DA MATÉRIA
+MATERIA_ESCOLHIDA = MATERIAS[MATERIA - 1]
+
+# PRIMEIRA NOTA
+
+NOTA01 = float(input("DIGITE A PRIMEIRA NOTA DO ALUNO:\n"))
+
+while NOTA01 < 0 or NOTA01 > 10:
+    print("NOTA INVÁLIDA! A NOTA DEVE ESTAR ENTRE 0 E 10.")
+    NOTA01 = float(input("DIGITE A PRIMEIRA NOTA NOVAMENTE:\n"))
+
+
+# SEGUNDA NOTA
+
+NOTA02 = float(input("DIGITE A SEGUNDA NOTA DO ALUNO:\n"))
+
+while NOTA02 < 0 or NOTA02 > 10:
+    print("NOTA INVÁLIDA! A NOTA DEVE ESTAR ENTRE 0 E 10.")
+    NOTA02 = float(input("DIGITE A SEGUNDA NOTA NOVAMENTE:\n"))
+
+# NOTA DE TRABALHO
+
+NOTA_TRABALHO = float(input("DIGITE A NOTA DE TRABALHO:\n"))
+
+while NOTA_TRABALHO < 0 or NOTA_TRABALHO > 10:
+    print("NOTA DE TRABALHO INVÁLIDA! A NOTA DEVE ESTAR ENTRE 0 E 10.")
+    NOTA_TRABALHO = float(input("DIGITE A NOTA DE TRABALHO NOVAMENTE:\n"))
+
+# NOTA DE ATIVIDADES
+
+NOTA_ATIVIDADES = float(input("DIGITE A NOTA DE ATIVIDADES:\n"))
+
+while NOTA_ATIVIDADES < 0 or NOTA_ATIVIDADES > 10:
+    print("NOTA DE ATIVIDADE INVÁLIDA! A NOTA DEVE ESTAR ENTRE 0 E 10.")
+    NOTA_ATIVIDADES = float(input("DIGITE A NOTA DE ATIVIDADES NOVAMENTE:\n"))
+
+# NOTA DE PARTICIPAÇÃO
+
+NOTA_PARTICIPACAO = float(input("DIGITE A NOTA DE PARTICIPAÇÃO:\n"))
+
+while NOTA_PARTICIPACAO < 0 or NOTA_PARTICIPACAO > 10:
+    print("NOTA DE PARTICIPAÇÃO INVÁLIDA! A NOTA DEVE ESTAR ENTRE 0 E 10.")
+    NOTA_PARTICIPACAO = float(input("DIGITE A NOTA DE PARTICIPAÇÃO NOVAMENTE:\n"))
+
+# RESULTADO
+RESULTADO = (NOTA01 + NOTA02 + NOTA_TRABALHO + NOTA_ATIVIDADES + NOTA_PARTICIPACAO) / 5
+
+
+# RESULTADO FINAL
+print("\n--- RESULTADO FINAL ---")
+print(f"ALUNO: {ALUNO}")
+print(f"RA: {RA}")
+print(f"SÉRIE: {SERIE}º DO {ETAPA_ENSINO}")
+print(f"MÉDIA: {RESULTADO:.2f}")
+if RESULTADO >= 6:
+    print(f"O ALUNO {ALUNO} FOI APROVADO!")
+
+elif RESULTADO >= 5:
+    print(f"O ALUNO {ALUNO} FICOU DE RECUPERAÇÃO!")
+
+else:
+    print(f"O ALUNO {ALUNO} FOI REPROVADO!")
